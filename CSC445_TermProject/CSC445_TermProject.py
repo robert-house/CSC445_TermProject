@@ -138,11 +138,14 @@ if __name__ == '__main__':
     a = input("Please Enter an expression: ")
 
     data = a
-
-    print(data)
-    tokens = scan_expression(data)
-    print(tokens)
-    tree = parse_expression(tokens)
-    print(tree)
-    i = Interpret(tree)
-    print("Final value is: %d" % i.attr)
+    while (data != "n"):
+        print(data)
+        tokens = scan_expression(data)
+        print(tokens)
+        tree = parse_expression(tokens)
+        print(tree)
+        i = Interpret(tree)
+        print("Final value is: %d" % i.attr)
+        a = input("Please Enter an expression(n to quit): ")
+        data = a
+        
