@@ -135,18 +135,10 @@ def parse_expression(tokens):
     return parser.parse(tokens)
 
 if __name__ == '__main__':
-    if len(sys.argv) == 1:
-        filename = 'expr1.txt'
-        data = open(filename).read()
-    elif len(sys.argv) == 2:
-        if sys.argv[1] in ['-h', '--help']:
-            print(""""usage: %s [filename | expression ]""" %
-                  sys.argv[0])
-            sys.exit(1)
-        filename = sys.argv[1]
-        data = open(filename).read()
-    else:
-        data = ' '.join(sys.argv[1:])
+    a = input("Please Enter an expression: ")
+
+    data = a
+
     print(data)
     tokens = scan_expression(data)
     print(tokens)
