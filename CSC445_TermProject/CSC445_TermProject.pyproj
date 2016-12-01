@@ -22,6 +22,21 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="CSC445_TermProject.py" />
+    <Compile Include="spark_parser\ast.py" />
+    <Compile Include="spark_parser\scanner.py" />
+    <Compile Include="spark_parser\spark.py" />
+    <Compile Include="spark_parser\version.py" />
+    <Compile Include="spark_parser\__init__.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="spark_parser\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="spark_parser\ast.pyc" />
+    <Content Include="spark_parser\scanner.pyc" />
+    <Content Include="spark_parser\spark.pyc" />
+    <Content Include="spark_parser\version.pyc" />
+    <Content Include="spark_parser\__init__.pyc" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
