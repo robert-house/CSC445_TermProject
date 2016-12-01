@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
-SPARK example to parse simple arithmetic expressions
+Parsing Arithmetic Expressions
 """
 import sys
 from spark_parser import GenericParser, GenericASTTraversal
@@ -8,10 +8,8 @@ from spark_parser import AST
 from spark_parser.scanner import GenericScanner, GenericToken
 
 class ExprScanner(GenericScanner):
-    """A simple integer expression Parser.
-
-    Note: function parse() comes from GenericASTBuilder
-    """
+    # A simple integer expression Parser.
+    
 
     def __init__(self):
         GenericScanner.__init__(self)
@@ -25,15 +23,7 @@ class ExprScanner(GenericScanner):
         t = GenericToken(kind=name, attr=s)
         self.rv.append(t)
 
-    # The function names below begin with 't_'.
-    # This indicates to GenericScanner that these routines
-    # form the tokens. GenericScanner introspects on the
-    # method names of this class and the docstrings to come
-    # up with both the names of the tokens and the regular expressions
-    # that make up those tokens
-
-    # Recognize white space, but we don't create a token for it.
-    # This has the effect of stripping white space between tokens
+    # Strip Whitespace
     def t_whitespace(self, s):
         r' \s+ '
         pass
@@ -55,16 +45,10 @@ class ExprScanner(GenericScanner):
         self.add_token('INTEGER', s)
 
 # Some kinds of SPARK parsing you might want to consider
-# DEFAULT_DEBUG = {'rules': True, 'transition': True, 'reduce' : True, 'dups': True}
-# DEFAULT_DEBUG = {'rules': False, 'transition': False, 'reduce' : True, 'dups': True}
 DEFAULT_DEBUG = {'rules': False, 'transition': False, 'reduce': False, 'dups': True}
 
 class ExprParser(GenericParser):
-    """A simple expression parser for numbers and arithmetic operators: +, , *, and /.
-
-    Note: methods that begin p_ have docstrings that are grammar rules interpreted
-    by SPARK.
-    """
+    # A simple expression parser for numbers and arithmetic operators: +, , *, and /.
 
     def __init__(self, start='expr', debug=DEFAULT_DEBUG):
         GenericParser.__init__(self, start, debug)
@@ -134,6 +118,8 @@ def parse_expression(tokens):
     parser = ExprParser()
     return parser.parse(tokens)
 
+
+# MAIN
 if __name__ == '__main__':
     a = input("Please Enter an expression: ")
 
@@ -148,4 +134,3 @@ if __name__ == '__main__':
         print("Final value is: %d" % i.attr)
         a = input("Please Enter an expression(n to quit): ")
         data = a
-        
